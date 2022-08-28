@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
 
 	/* Text Styles */
-	textStyles:{
+	text:{
 		timerCategoryLabel: {
 			fontFamily: "Inter-SemiBold",
 			fontSize: 20,
@@ -19,6 +19,34 @@ export const styles = StyleSheet.create({
 		},
 		breakSet: {
 			color:"#D7FFA5",
+		},
+	},
+
+	/* Button Styles */
+	button: {
+		base: {
+			flex: 1,
+			borderRadius: 9,
+		},
+		numpad: {
+			backgroundColor: "#FFFFFF22",
+		},
+		symbol: {
+			borderRadius: 90,
+			backgroundColor: "#FFFFFF",
+		},
+		numpadText: {
+			paddingLeft: "43%",
+			paddingBottom: "20%",
+			fontFamily: "Inter-Regular",
+			fontSize: 30,
+		},
+		symbolText: {
+			paddingLeft: "43%",
+			paddingBottom: "20%",
+			fontFamily: "Inter-Regular",
+			fontSize: 30,
+			color: "#000",
 		},
 	},
 })
