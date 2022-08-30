@@ -1,18 +1,23 @@
 import {StyleSheet} from 'react-native'
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-  },
+	Parent: {
+		container: {
+			backgroundColor: '#000',
+			paddingLeft: "5%",
+			paddingRight: "5%",
+		},
+	},
 
-	/* Text Styles */
-	text:{
-		timerCategoryLabel: {
+	TimerLabel: {
+		view: {
+			backgroundColor: "#00000000",
+			marginTop: "40%",
+		},
+		text: {
 			fontFamily: "Inter-SemiBold",
-			fontSize: 20,
+			fontSize: 24,
+			letterSpacing: -0.5,
 		},
 		workSet: {
 			color:"#B6E5FF",
@@ -22,7 +27,6 @@ export const styles = StyleSheet.create({
 		},
 	},
 
-	/* Button Styles */
 	button: {
 		base: {
 			flex: 1,
@@ -36,17 +40,28 @@ export const styles = StyleSheet.create({
 			backgroundColor: "#FFFFFF",
 		},
 		numpadText: {
-			paddingLeft: "43%",
-			paddingBottom: "20%",
+			paddingLeft: "42%",
+			paddingBottom: "-2%",
+			marginBottom: 20,
 			fontFamily: "Inter-Regular",
 			fontSize: 30,
 		},
 		symbolText: {
-			paddingLeft: "43%",
-			paddingBottom: "20%",
-			fontFamily: "Inter-Regular",
-			fontSize: 30,
+			paddingTop:"10%",
+			paddingLeft:"35%",
 			color: "#000",
+		},
+	},
+
+	numberDisplay: {
+		view: {
+			marginTop: "-10%",
+			marginLeft: "80%",
+		},
+		text: {
+			fontFamily: "Inter-SemiBold",
+			fontSize: 100,
+			letterSpacing: -7,
 		},
 	},
 })

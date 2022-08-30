@@ -5,13 +5,21 @@ import {SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, useColorScheme, V
 
 /* Custom Imports */
 import {styles} from './stylesheet'
-import {NumpadButton, SymbolButton} from './inputButton'
+
+import {TimerLabel} from './timerLabel'
 import {Numpad} from './numpad'
+import {NumberDisplay} from './numberDisplay'
+import {SymbolButton} from './inputButton'
 
 export default function App(props) {
   return (
-    <View style={styles.container}>
-    <Numpad />
+    <>
+    <View style={styles.Parent.container}>
+      <TimerLabel/>
+      <NumberDisplay/>
+      <Numpad/>
+      <SymbolButton name="navigate-next"/>
     </View>
+    </>
   );
 }
