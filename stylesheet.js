@@ -2,10 +2,17 @@ import {StyleSheet} from 'react-native'
 
 export const styles = StyleSheet.create({
 	Parent: {
-		container: {
+		backgroundContainer: {
+			flex: 1,
 			backgroundColor: '#000',
-			paddingLeft: "5%",
-			paddingRight: "5%",
+			zIndex: -100,
+
+		},
+		container: {
+			flex: 1,
+			backgroundColor: '#00000000',
+			paddingLeft: "7%",
+			paddingRight: "7%",
 		},
 	},
 
@@ -32,11 +39,18 @@ export const styles = StyleSheet.create({
 			flex: 1,
 			borderRadius: 9,
 		},
+		circular: {
+			paddingTop: "2%",
+			marginLeft: "37%",
+			marginRight: "37%",
+			marginTop: "9%",
+			marginBottom: "9%",
+		},
 		numpad: {
 			backgroundColor: "#FFFFFF22",
 		},
 		symbol: {
-			borderRadius: 90,
+			borderRadius: 60,
 			backgroundColor: "#FFFFFF",
 		},
 		numpadText: {
@@ -47,9 +61,13 @@ export const styles = StyleSheet.create({
 			fontSize: 30,
 		},
 		symbolText: {
-			paddingTop:"10%",
-			paddingLeft:"35%",
+			paddingTop: "25%",
+			paddingLeft:"34%",
 			color: "#000",
+		},
+		ripple: {
+			color: "#555",
+			foreground: false,
 		},
 	},
 

@@ -14,11 +14,13 @@ import {SymbolButton} from './inputButton'
 export default function App(props) {
   return (
     <>
-    <View style={styles.Parent.container}>
-      <TimerLabel/>
-      <NumberDisplay/>
-      <Numpad/>
-      <SymbolButton name="navigate-next"/>
+    <View style={styles.Parent.backgroundContainer}>
+      <View style={styles.Parent.container}>
+        <TimerLabel/>
+        <NumberDisplay/>
+        <Numpad/>
+        <SymbolButton style={styles.button.circular} name="navigate-next"/>
+      </View>
     </View>
     </>
   );

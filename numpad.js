@@ -34,7 +34,6 @@ export function NumrowLast(props){
 				style = {{
 					flexGrow: 1,
 					marginTop: "2.5%",
-					paddingTop: "5%",
 					marginLeft: "2.5%",
 				}}
 				name="backspace" />

@@ -15,6 +15,8 @@ export function BaseButton(props) {
 				style = {
 					[styles.button.base, props.style[1] , ButtonType === "numpad" ? styles.button.numpad : styles.button.symbol]
 				}
+				onPress= {() => {console.log(props.innertext.toString() + " Pressed!")}}
+				android_ripple = {styles.button.ripple}
 			>
 				<Text
 					style={[ButtonType === "numpad" ? styles.button.numpadText : styles.button.symbolText]}>
