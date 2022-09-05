@@ -1,40 +1,45 @@
 /* Module Imports */
-import React/*, {useState, useEffect} */ from 'react';
+import React, { useContext } from 'react';
 import { Text, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-
 /* Custom Imports */
-import {styles} from './stylesheet'
+import { styles } from './stylesheet'
+import { TimeDispatch } from './App';
 
 export function BaseButton(props) {
+
 	const ButtonType = props.style[0]
+	const dispatch = useContext(TimeDispatch)
+
+	function handlePress(action) {
+		dispatch({type: action, value: props.innertext})
+	}
+
 	return(
-		<>
-			<Pressable
-				style = {
-					[styles.button.base, props.style[1] , ButtonType === "numpad" ? styles.button.numpad : styles.button.symbol]
-				}
-				onPress= {() => {console.log(props.innertext.toString() + " Pressed!")}}
-				android_ripple = {styles.button.ripple}
-			>
-				<Text
-					style={[ButtonType === "numpad" ? styles.button.numpadText : styles.button.symbolText]}>
+		<Pressable
+			style = {
+				[styles.button.base, props.style[1] , ButtonType === "numpad" ? styles.button.numpad : styles.button.symbol]
+			}
+			onPressOut= {() => {handlePress(props.actionType);console.log("Keypress detected")}}
+			android_ripple = {styles.button.ripple}
+		>
+			<Text
+				style={[ButtonType === "numpad" ? styles.button.numpadText : styles.button.symbolText]}>
 				{ButtonType === "numpad" ? props.innertext : <Icon name={props.innertext} size={30} color="#000"/>}
-				</Text>
-			</Pressable>
-		</>
+			</Text>
+		</Pressable>
 	);
 }
 
 export function NumpadButton(props){
 	return(
-			<BaseButton style={["numpad", props.style]} innertext={props.innertext}/>
+			<BaseButton style={["numpad", props.style]} innertext={props.innertext} actionType={props.actionType}/>
 	);
 }
 
 export function SymbolButton(props){
 	return(
-			<BaseButton style={["symbol", props.style]} innertext={props.name}/>
+			<BaseButton style={["symbol", props.style]} innertext={props.name}  actionType={props.actionType}/>
 	);
 }

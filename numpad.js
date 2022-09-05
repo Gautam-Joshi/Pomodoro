@@ -1,5 +1,5 @@
 /* Module Imports */
-import React, {useState, useEffect} from 'react';
+import React, {useContext} from 'react';
 import { View, Text, Pressable
 } from 'react-native';
 
@@ -9,16 +9,18 @@ import {NumpadButton, SymbolButton} from './inputButton'
 export function Numpad(){
 	return(
 		<>
-			<Numrow style={{flex:1, justifyContent: "space-between"}} innertext="123"/>
-			<Numrow style={{flex:1,}} innertext="456"/>
-			<Numrow style={{flex:1,}} innertext="789"/>
+			<Numrow style={{flex:1, justifyContent: "space-between"}} innertext="123" />
+			<Numrow style={{flex:1,}} innertext="456" />
+			<Numrow style={{flex:1,}} innertext="789" />
 			<NumrowLast style={{flex: 1,}}
-			innertext="0X"/>
+			innertext="0X" />
+
 		</>
 	);
 }
 
 export function NumrowLast(props){
+
 	return(
 		<View style = {{flexDirection: "row", height: 95}}>
 			<NumpadButton
@@ -28,7 +30,9 @@ export function NumrowLast(props){
 					paddingTop: "6.3%",
 					paddingLeft: "2.5%",
 				}}
-				innertext={props.innertext[0]} />
+				innertext={props.innertext[0]}
+				actionType="increment"
+				/>
 
 			<SymbolButton
 				style = {{
@@ -36,7 +40,9 @@ export function NumrowLast(props){
 					marginTop: "2.5%",
 					marginLeft: "2.5%",
 				}}
-				name="backspace" />
+				name="backspace"
+				actionType="decrement"
+				/>
 		</View>
 	);
 }
@@ -49,7 +55,9 @@ export function Numrow(props){
 					marginTop: "2.5%",
 					paddingTop: "5.5%",
 				}}
-				innertext={props.innertext[0]} />
+				innertext={props.innertext[0]}
+				actionType="increment"
+				/>
 
 			<NumpadButton
 				style = {{
@@ -57,7 +65,9 @@ export function Numrow(props){
 					paddingTop: "5.5%",
 					marginLeft: "2.5%"
 					}}
-				innertext={props.innertext[1]} />
+				innertext={props.innertext[1]}
+				actionType="increment"
+				/>
 
 			<NumpadButton
 				style = {{
@@ -65,7 +75,9 @@ export function Numrow(props){
 					paddingTop: "5.5%",
 					marginLeft: "2.5%",
 				}}
-				innertext={props.innertext[2]} />
+				innertext={props.innertext[2]}
+				actionType="increment"
+				/>
 		</View>
 	);
 }

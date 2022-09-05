@@ -10,7 +10,7 @@ export function TimerLabel() {
 	return(
 		<View style = {styles.TimerLabel.view}>
 			<Text style = {[styles.TimerLabel.text, title === 0 ? styles.TimerLabel.workSet : styles.TimerLabel.breakSet]}>
-				{title === 0 ? `Work${"\n"}Minutes` : `Break${"\n"}Minutes`}
+				{title === 0 ? `Set Work Minutes:` : `Set Break Minutes:`}
 			</Text>
 		</View>
 	);

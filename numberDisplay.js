@@ -1,11 +1,12 @@
 /* Module Imports */
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {View, Text} from 'react-native';
 
 /* Custom Imports */
 import {styles} from './stylesheet'
 
-export function NumberDisplay() {
+export function NumberDisplay(props) {
+	/*
 	const [display, setDisplay] = useState(0)
 
 	const upTime = setInterval(() => {
@@ -17,11 +18,11 @@ export function NumberDisplay() {
 			clearInterval(upTime)
 		}
 	});
-
+	*/
 	return(
 		<View style = {styles.numberDisplay.view}>
-			<Text style = {styles.numberDisplay.text}>
-				{display}
+			<Text style = {[styles.numberDisplay.text, props.display === 0 ? "" : styles.numberDisplay.alive]}>
+				{props.display}
 			</Text>
 		</View>
 	);

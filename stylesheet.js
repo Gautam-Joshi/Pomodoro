@@ -18,12 +18,14 @@ export const styles = StyleSheet.create({
 
 	TimerLabel: {
 		view: {
+			alignItems: "center",
 			backgroundColor: "#00000000",
 			marginTop: "40%",
 		},
 		text: {
 			fontFamily: "Inter-SemiBold",
-			fontSize: 24,
+			alignItems: "center",
+			fontSize: 27,
 			letterSpacing: -0.5,
 		},
 		workSet: {
@@ -38,19 +40,22 @@ export const styles = StyleSheet.create({
 		base: {
 			flex: 1,
 			borderRadius: 9,
+			overflow: "hidden",
 		},
 		circular: {
-			paddingTop: "2%",
-			marginLeft: "37%",
-			marginRight: "37%",
-			marginTop: "9%",
-			marginBottom: "9%",
+			navigateNext: {
+				paddingTop: "1.5%",
+				marginLeft: "37%",
+				marginRight: "37%",
+				marginTop: "17%",
+				marginBottom: "9%",
+			},
 		},
 		numpad: {
-			backgroundColor: "#FFFFFF22",
+			backgroundColor: "#212121",
 		},
 		symbol: {
-			borderRadius: 60,
+			borderRadius: 70,
 			backgroundColor: "#FFFFFF",
 		},
 		numpadText: {
@@ -61,25 +66,30 @@ export const styles = StyleSheet.create({
 			fontSize: 30,
 		},
 		symbolText: {
-			paddingTop: "25%",
+			paddingTop: "25.5%",
 			paddingLeft:"34%",
 			color: "#000",
 		},
 		ripple: {
-			color: "#555",
+			color: "#000",
 			foreground: false,
+			borderless: false,
 		},
 	},
 
 	numberDisplay: {
 		view: {
-			marginTop: "-10%",
-			marginLeft: "80%",
+			alignItems: "flex-end",
+			marginTop: "-2%",
+			marginBottom: "-3%",
 		},
 		text: {
 			fontFamily: "Inter-SemiBold",
 			fontSize: 100,
 			letterSpacing: -7,
 		},
+		alive: {
+			color: "#FFF"
+		}
 	},
 })
