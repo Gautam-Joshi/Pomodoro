@@ -1,7 +1,6 @@
 /* Module Imports */
-import React, {useContext} from 'react';
-import { View, Text, Pressable
-} from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 
 /* Custom Imports */
 import {NumpadButton, SymbolButton} from './inputButton'
@@ -13,14 +12,13 @@ export function Numpad(){
 			<Numrow style={{flex:1,}} innertext="456" />
 			<Numrow style={{flex:1,}} innertext="789" />
 			<NumrowLast style={{flex: 1,}}
-			innertext="0X" />
+			innertext="0" />
 
 		</>
 	);
 }
 
 export function NumrowLast(props){
-
 	return(
 		<View style = {{flexDirection: "row", height: 95}}>
 			<NumpadButton
@@ -40,7 +38,7 @@ export function NumrowLast(props){
 					marginTop: "2.5%",
 					marginLeft: "2.5%",
 				}}
-				name="backspace"
+				symbol="backspace"
 				actionType="decrement"
 				/>
 		</View>

@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 /* Custom Imports */
 import { styles } from './stylesheet'
-import { TimeDispatch } from './App';
+import { TimeDispatch } from './timeSetScreens';
 
 export function BaseButton(props) {
 
@@ -18,15 +18,24 @@ export function BaseButton(props) {
 
 	return(
 		<Pressable
-			style = {
-				[styles.button.base, props.style[1] , ButtonType === "numpad" ? styles.button.numpad : styles.button.symbol]
-			}
-			onPressOut= {() => {handlePress(props.actionType);console.log("Keypress detected")}}
-			android_ripple = {styles.button.ripple}
+			style = {({ pressed }) => [
+				{
+					opacity: pressed
+						? 0.3
+						: 1
+				},
+				styles.button.base, props.style[1],
+				ButtonType === "numpad" ? styles.button.numpad : styles.button.symbol,
+			]}
+
+			onPressOut= {() => {
+				handlePress(props.actionType);
+				console.log("Keypress detected")
+			}}
 		>
 			<Text
 				style={[ButtonType === "numpad" ? styles.button.numpadText : styles.button.symbolText]}>
-				{ButtonType === "numpad" ? props.innertext : <Icon name={props.innertext} size={30} color="#000"/>}
+					{ButtonType === "numpad" ? props.innertext : <Icon name={props.innertext} size={30} color="#000"/>}
 			</Text>
 		</Pressable>
 	);
@@ -40,6 +49,6 @@ export function NumpadButton(props){
 
 export function SymbolButton(props){
 	return(
-			<BaseButton style={["symbol", props.style]} innertext={props.name}  actionType={props.actionType}/>
+			<BaseButton style={["symbol", props.style]} innertext={props.symbol}  actionType={props.actionType}/>
 	);
 }

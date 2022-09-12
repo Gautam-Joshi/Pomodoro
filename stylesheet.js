@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
 		text: {
 			fontFamily: "Inter-SemiBold",
 			alignItems: "center",
-			fontSize: 27,
+			fontSize: 24,
 			letterSpacing: -0.5,
 		},
 		workSet: {
@@ -42,34 +42,60 @@ export const styles = StyleSheet.create({
 			borderRadius: 9,
 			overflow: "hidden",
 		},
+
 		circular: {
 			navigateNext: {
-				paddingTop: "1.5%",
-				marginLeft: "37%",
+				maxHeight: 100,
+				width: 100,
+				borderRadius: 50,
+				marginTop: 34,
+				marginLeft: "35%",
 				marginRight: "37%",
-				marginTop: "17%",
-				marginBottom: "9%",
+				paddingTop: "3%",
+				paddingLeft: "0.7%",
+			},
+			navigateBefore: {
+				borderRadius: 50,
+				marginLeft: 20,
+				marginRight: 50,
+				marginTop: 34,
+				paddingLeft: 2,
+				paddingTop: 10,
+				paddingBottom: 32,
+			},
+			done: {
+				borderRadius: 50,
+				marginRight: 20,
+				marginLeft: 50,
+				marginTop: 34,
+				paddingLeft: 2,
+				paddingTop: 10,
+				paddingBottom: 32,
 			},
 		},
-		numpad: {
-			backgroundColor: "#212121",
-		},
+
 		symbol: {
 			borderRadius: 70,
-			backgroundColor: "#FFFFFF",
-		},
-		numpadText: {
-			paddingLeft: "42%",
-			paddingBottom: "-2%",
-			marginBottom: 20,
-			fontFamily: "Inter-Regular",
-			fontSize: 30,
+			backgroundColor: "#FFF",
 		},
 		symbolText: {
 			paddingTop: "25.5%",
 			paddingLeft:"34%",
 			color: "#000",
 		},
+
+		numpad: {
+			backgroundColor: "#212121",
+		},
+		numpadText: {
+			color: "#FFF",
+			paddingLeft: "42%",
+			paddingBottom: "-2%",
+			marginBottom: 20,
+			fontFamily: "Inter-Regular",
+			fontSize: 30,
+		},
+
 		ripple: {
 			color: "#000",
 			foreground: false,
@@ -80,10 +106,11 @@ export const styles = StyleSheet.create({
 	numberDisplay: {
 		view: {
 			alignItems: "flex-end",
-			marginTop: "-2%",
+			marginTop: -5,
 			marginBottom: "-3%",
 		},
 		text: {
+			color: "#969696",
 			fontFamily: "Inter-SemiBold",
 			fontSize: 100,
 			letterSpacing: -7,

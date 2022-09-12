@@ -5,12 +5,12 @@ import {View, Text} from 'react-native';
 /* Custom Imports */
 import {styles} from './stylesheet'
 
-export function TimerLabel() {
-	const [title, setTitle] = useState(0)
+export function TimerLabel(props){
+	const title = props.title
 	return(
 		<View style = {styles.TimerLabel.view}>
-			<Text style = {[styles.TimerLabel.text, title === 0 ? styles.TimerLabel.workSet : styles.TimerLabel.breakSet]}>
-				{title === 0 ? `Set Work Minutes:` : `Set Break Minutes:`}
+			<Text style = {[styles.TimerLabel.text, title == "work" ? styles.TimerLabel.workSet : styles.TimerLabel.breakSet]}>
+				{title == "work" ? `Set Work Minutes:` : `Set Break Minutes:`}
 			</Text>
 		</View>
 	);
