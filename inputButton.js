@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 /* Custom Imports */
 import { styles } from './stylesheet'
-import { TimeDispatch } from './timeSetScreens';
+import { TimeDispatch } from './altTimeSet';
 
 export function BaseButton(props) {
 
@@ -13,7 +13,9 @@ export function BaseButton(props) {
 	const dispatch = useContext(TimeDispatch)
 
 	function handlePress(action) {
-		dispatch({type: action, value: props.innertext})
+		dispatch({
+			type: action,
+			value: props.innertext})
 	}
 
 	return(
@@ -30,7 +32,6 @@ export function BaseButton(props) {
 
 			onPressOut= {() => {
 				handlePress(props.actionType);
-				console.log("Keypress detected")
 			}}
 		>
 			<Text
