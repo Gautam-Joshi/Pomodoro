@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 		},
 		container: {
 			flex: 1,
-			backgroundColor: '#00000000',
+			backgroundColor: '#000',
 			paddingLeft: "7%",
 			paddingRight: "7%",
 		},
@@ -42,7 +42,6 @@ export const styles = StyleSheet.create({
 			borderRadius: 9,
 			overflow: "hidden",
 		},
-
 		circular: {
 			navigateNext: {
 				maxHeight: 100,
@@ -118,5 +117,77 @@ export const styles = StyleSheet.create({
 		alive: {
 			color: "#FFF"
 		}
+	},
+
+	transient: {
+		view: {
+			flex: 1,
+			backgroundColor: '#272200',
+			zIndex: -100,
+			paddingLeft: "7%",
+			paddingRight: "7%",
+			alignItems: "center",
+		},
+		text: {
+			marginTop: "40%",
+			fontFamily: "Inter-SemiBold",
+			fontSize: 24,
+			letterSpacing: -0.5,
+			color: "#FFF"
+		},
+		countdown: {
+			fontFamily: "Inter-SemiBold",
+			fontSize: 100,
+			letterSpacing: -7,
+			color: "#FFD90E",
+		},
+		stopsymbol: {
+			color: "#FFD90E",
+			fontSize: 40,
+			maxHeight: 100,
+			width: 100,
+			borderRadius: 50,
+			marginTop: "120%",
+			marginLeft: "35%",
+			marginRight: "37%",
+			paddingTop: "1.5%",
+			paddingRight: "10%",
+		}
+	},
+
+	timer: {
+		view: {
+			flex: 1,
+			zIndex: -100,
+			paddingLeft: "7%",
+			paddingRight: "7%",
+			alignItems: "center",
+		},
+		workbg: {
+			backgroundColor: '#001230',
+		},
+
+		breakbg: {
+			backgroundColor: '#0A2400',
+		},
+		text: {
+			marginTop: "40%",
+			fontFamily: "Inter-SemiBold",
+			fontSize: 24,
+			letterSpacing: -0.5,
+			color: "#FFF"
+		},
+		work: {
+			fontFamily: "Inter-SemiBold",
+			fontSize: 100,
+			letterSpacing: -7,
+			color: "#6BCFFF",
+		},
+		break: {
+			fontFamily: "Inter-SemiBold",
+			fontSize: 100,
+			letterSpacing: -7,
+			color: "#B7FF81",
+		},
 	},
 })

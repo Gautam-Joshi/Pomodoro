@@ -24,7 +24,6 @@ export function timeSet(timestate, action) {
 
   switch (action.type) {
 		case 'switch':
-			console.log("Switching Modes")
 			if(timestate.mode === "work") {
 				return {
 					mode: "break",
@@ -74,7 +73,7 @@ export function timeSet(timestate, action) {
 	}
 }
 
-export function AltTimeSet( navigation ) {
+export function AltTimeSet() {
 
   const [timestate, dispatch] = useReducer(timeSet, {mode: "work", workCount: 0, breakCount: 0})
 
@@ -95,6 +94,7 @@ export function AltTimeSet( navigation ) {
 						? <SymbolButton
 								style = {styles.button.circular.navigateNext}
 								symbol = "navigate-next"
+								size = {30}
 								actionType = "switch"
 							/>
 						: <View
@@ -105,16 +105,18 @@ export function AltTimeSet( navigation ) {
 								<SymbolButton
 									style = {styles.button.circular.navigateBefore}
 									symbol = "navigate-before"
+									size = {30}
 									actionType = "switch"
+									context="TimeDispatch"
 								/>
 								<StateButton
 									style ={styles.button.circular.done}
-									symbol = "done" screen="StartBuffer"
-									navigation={navigation}
+									symbol = "done"
+									size = {30}
+									screen = "Transient"
 								/>
 							</View>
 					}
-
         </TimeDispatch.Provider>
       </View>
     </View>

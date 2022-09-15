@@ -38,6 +38,7 @@ export function NumrowLast(props){
 					marginTop: "2.5%",
 					marginLeft: "2.5%",
 				}}
+				size = {30}
 				symbol="backspace"
 				actionType="decrement"
 				/>

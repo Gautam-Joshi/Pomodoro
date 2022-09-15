@@ -5,13 +5,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 /* Custom Imports */
 import { styles } from './stylesheet'
-import { TimeDispatch } from './altTimeSet';
 import { PauseDispatch } from './altTransient';
 
 export function BaseButton(props) {
-
-	const ButtonType = props.style[0]
-	const dispatch = useContext(TimeDispatch)
+	const dispatch = useContext(PauseDispatch)
 
 	function handlePress(action) {
 		dispatch({
@@ -27,25 +24,17 @@ export function BaseButton(props) {
 						? 0.3
 						: 1
 				},
-				styles.button.base, props.style[1],
-				ButtonType === "numpad" ? styles.button.numpad : styles.button.symbol,
+				styles.button.base, props.style[1], styles.button.symbol,
 			]}
 
 			onPressOut= {() => {
 				handlePress(props.actionType);
 			}}
 		>
-			<Text
-				style={[ButtonType === "numpad" ? styles.button.numpadText : styles.button.symbolText]}>
-					{ButtonType === "numpad" ? props.innertext : <Icon name={props.innertext} size={props.size} color="#000"/>}
+			<Text style={styles.button.symbolText}>
+				<Icon name={props.innertext} size={props.size} color="#000"/>
 			</Text>
 		</Pressable>
-	);
-}
-
-export function NumpadButton(props){
-	return(
-			<BaseButton style={["numpad", props.style]} innertext={props.innertext} actionType={props.actionType}/>
 	);
 }
 
