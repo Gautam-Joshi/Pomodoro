@@ -1,19 +1,29 @@
 import React, { useReducer, useEffect } from 'react';
 import { View, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { styles } from './stylesheet'
 
 /* Component Imports */
-import { StateButton } from './actionButton'
+import { StateButton } from './resetButton'
 import { SymbolButton } from './pauseButton'
 
 export const PauseDispatch = React.createContext(null);
 
-export function Transient() {
-	const [transientState, dispatch] = useReducer(timerReducer, {mode: "transient", lastMode: "transient", transientCount: 3, workCount: 3, breakCount: 3, paused: false,})
+export function Transient(route) {
+	const [transientState, dispatch] = useReducer(timerReducer, {
+		mode: "transient",
+		lastMode: "transient",
+		transientCount: 3,
+		workCount: route.route.params.workCount,
+		breakCount: route.route.params.breakCount,
+		workCountArch: route.route.params.workCount,
+		breakCountArch: route.route.params.breakCount,
+		paused: false,
+	})
 
 	const decrementID = setInterval(() => {
-		dispatch({type: "normal"})
+		if(!transientState.paused) {
+			dispatch({type: "normal"})
+		} else {}
 	}, 1000);
 
 	useEffect(() => {
@@ -125,10 +135,8 @@ export function Transient() {
 
 export function timerReducer(state, action) {
 
-	if (!state.paused) {
 	switch (action.type) {
 		case "pause":
-			console.log("Pausing State...")
 			return {
 				mode: state.mode,
 				lastMode: state.lastMode,
@@ -136,9 +144,10 @@ export function timerReducer(state, action) {
 				workCount: state.workCount,
 				breakCount: state.breakCount,
 				paused: true,
+				workCountArch: state.workCountArch,
+				breakCountArch: state.breakCountArch,
 			}
 		case "resume":
-			console.log("Resuming State...")
 			return {
 				mode: state.mode,
 				lastMode: state.lastMode,
@@ -146,6 +155,8 @@ export function timerReducer(state, action) {
 				workCount: state.workCount,
 				breakCount: state.breakCount,
 				paused: false,
+				workCountArch: state.workCountArch,
+				breakCountArch: state.breakCountArch,
 			}
 	}
 	switch (state.mode) {
@@ -155,18 +166,22 @@ export function timerReducer(state, action) {
 					mode: "transient",
 					lastMode: "transient",
 					transientCount: state.transientCount - 1,
-					workCount: 3,
-					breakCount: 3,
+					workCount: state.workCount,
+					breakCount: state.breakCount,
 					paused: false,
+					workCountArch: state.workCountArch,
+					breakCountArch: state.breakCountArch,
 				}
 			} else {
 				return {
 					mode: "work",
 					lastMode: "work",
 					transientCount: 0,
-					workCount: 3,
-					breakCount: 3,
+					workCount: state.workCount,
+					breakCount: state.breakCount,
 					paused: false,
+					workCountArch: state.workCountArch,
+					breakCountArch: state.breakCountArch,
 				}
 			}
 		case "work":
@@ -176,17 +191,21 @@ export function timerReducer(state, action) {
 					lastMode: "work",
 					transientCount: 0,
 					workCount: state.workCount - 1,
-					breakCount: 3,
+					breakCount: state.breakCount,
 					paused: false,
+					workCountArch: state.workCountArch,
+					breakCountArch: state.breakCountArch,
 				}
 			} else {
 				return {
 					mode: "break",
 					lastMode: "break",
 					transientCount: 0,
-					workCount: 3,
-					breakCount: 3,
+					workCount: state.workCount,
+					breakCount: state.breakCountArch,
 					paused: false,
+					workCountArch: state.workCountArch,
+					breakCountArch: state.breakCountArch,
 				}
 			}
 		case "break":
@@ -195,25 +214,23 @@ export function timerReducer(state, action) {
 					mode: "break",
 					lastMode: "break",
 					transientCount: 0,
-					workCount: 3,
+					workCount: state.workCount,
 					breakCount: state.breakCount - 1,
 					paused: false,
+					workCountArch: state.workCountArch,
+					breakCountArch: state.breakCountArch,
 				}
 			} else {
 				return {
 					mode: "work",
 					lastMode: "work",
 					transientCount: 0,
-					workCount: 3,
-					breakCount: 3,
+					workCount: state.workCountArch,
+					breakCount: state.breakCount,
 					paused: false,
+					workCountArch: state.workCountArch,
+					breakCountArch: state.breakCountArch,
 				}
 			}
-		case "paused":
-			return state
 		}
-	}
-
-	console.log("State Paused, Returning PrevState")
-	return state
 }

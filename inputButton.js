@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 /* Custom Imports */
 import { styles } from './stylesheet'
 import { TimeDispatch } from './altTimeSet';
-import { PauseDispatch } from './altTransient';
 
 export function BaseButton(props) {
 

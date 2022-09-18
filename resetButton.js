@@ -20,11 +20,7 @@ export function StateButton(props) {
 				styles.button.base,
 				styles.button.symbol
 			]}
-			onPressOut= {() => {
-				if((props.params.breakCount > 0) && (props.params.workCount > 0)){
-					navigation.navigate(props.screen, props.params)
-					}
-				}
+			onPressOut= {() => {navigation.navigate(props.screen)}
 				}
 		>
 			<Text

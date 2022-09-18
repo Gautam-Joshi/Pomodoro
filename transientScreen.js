@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { styles } from './stylesheet'
 
 /* Component Imports */
-import { StateButton } from './actionButton'
+import { StateButton } from './resetButton'
 
 
 export function Transient() {

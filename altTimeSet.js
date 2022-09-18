@@ -114,6 +114,9 @@ export function AltTimeSet() {
 									symbol = "done"
 									size = {30}
 									screen = "Transient"
+									params = {{
+										workCount: timestate.workCount,
+										breakCount: timestate.breakCount}}
 								/>
 							</View>
 					}
