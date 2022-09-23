@@ -172,7 +172,7 @@ export const styles = StyleSheet.create({
 		},
 
 		breakbg: {
-			backgroundColor: '#0A2400',
+			backgroundColor: "#141C0E",
 		},
 		text: {
 			marginTop: "40%",

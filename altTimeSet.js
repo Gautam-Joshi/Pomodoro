@@ -1,13 +1,18 @@
 import React, { useReducer } from 'react';
 import { View } from 'react-native';
-import { styles } from './stylesheet'
+import Animated, {Keyframe, Easing, FadeOut } from 'react-native-reanimated';
 
-/* Component Imports */
+/* Component, Styles and Animation imports */
 import { TimerLabel } from './timerLabel'
 import { Numpad } from './numpad'
 import { NumberDisplay } from './numberDisplay'
 import { SymbolButton } from './inputButton'
 import { StateButton } from './actionButton'
+import { styles } from './stylesheet'
+import { fadeOutKey } from './animations';
+
+/* Function Imports */
+import {secondconv} from "./timeFns"
 
 /* Make Time Dispatch context */
 export const TimeDispatch = React.createContext(null);
@@ -81,8 +86,12 @@ export function AltTimeSet() {
     <View style={styles.Parent.backgroundContainer}>
       <View style={styles.Parent.container}>
         <TimeDispatch.Provider value={dispatch}>
-          <TimerLabel title={timestate.mode} />
-
+					<Animated.View exiting={FadeOut}>
+					{timestate.mode === "work"
+						? <TimerLabel title={timestate.mode} />
+						: <TimerLabel title={timestate.mode} />
+					}
+					</Animated.View>
 					<NumberDisplay
 						display = {
 							timestate.mode === "work" ? timestate.workCount : timestate.breakCount
@@ -92,11 +101,11 @@ export function AltTimeSet() {
 
 					{ timestate.mode === "work"
 						? <SymbolButton
-								style = {styles.button.circular.navigateNext}
-								symbol = "navigate-next"
-								size = {30}
-								actionType = "switch"
-							/>
+									style = {styles.button.circular.navigateNext}
+									symbol = "navigate-next"
+									size = {30}
+									actionType = "switch"
+								/>
 						: <View
 								style={{
 									flexDirection: "row",
@@ -115,8 +124,8 @@ export function AltTimeSet() {
 									size = {30}
 									screen = "Transient"
 									params = {{
-										workCount: timestate.workCount,
-										breakCount: timestate.breakCount}}
+										workCount: secondconv(timestate.workCount),
+										breakCount: secondconv(timestate.breakCount)}}
 								/>
 							</View>
 					}

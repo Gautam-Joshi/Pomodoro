@@ -1,10 +1,13 @@
-import React, { useReducer, useEffect } from 'react';
-import { View, Text } from 'react-native';
-import { styles } from './stylesheet'
+import React, {useReducer, useEffect} from 'react';
+import {View, Text} from 'react-native';
+import {styles} from './stylesheet'
 
 /* Component Imports */
-import { StateButton } from './resetButton'
-import { SymbolButton } from './pauseButton'
+import {StateButton} from './resetButton'
+import {SymbolButton} from './pauseButton'
+
+/* Function Imports */
+import {timeDisplay} from "./timeFns"
 
 export const PauseDispatch = React.createContext(null);
 
@@ -57,7 +60,7 @@ export function Transient(route) {
 							Work
 						</Text>
 						<Text style={styles.timer.work}>
-							{transientState.workCount}
+							{timeDisplay(transientState.workCount)}
 						</Text>
 						<View
 								style={{
@@ -97,7 +100,7 @@ export function Transient(route) {
 							Break
 						</Text>
 						<Text style={styles.timer.break}>
-							{transientState.breakCount}
+							{timeDisplay(transientState.breakCount)}
 						</Text>
 						<View
 								style={{
